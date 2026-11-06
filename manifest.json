@@ -1,0 +1,32 @@
+{
+  "id": "com.syacucloud.grok-usage",
+  "name": "Grok Usage",
+  "version": "0.1.0",
+  "description": "Grok CLI 로그인으로 SuperGrok 주간 사용률을 받아 좌측 링에 표시합니다.",
+  "author": "SYacuCLoud",
+  "main": "dist/index.js",
+  "apiVersion": "1.0.0",
+  "defaultEnabled": true,
+  "contributions": {
+    "hostComponents": ["GrokUsageRing"],
+    "settingsPanel": {
+      "component": "GrokUsageSettings",
+      "title": "Grok 사용량",
+      "icon": "speed",
+      "order": 80
+    },
+    "backendModules": [
+      {
+        "id": "grok-usage",
+        "entry": "dist/backend.js",
+        "runtime": "utility-process",
+        "permissions": ["mcp-server-register"],
+        "enablement": {
+          "default": "disabled",
+          "promptOn": "firstUse",
+          "purpose": "Grok CLI 로그인으로 SuperGrok 주간 사용률을 받아 좌측 링에 표시합니다."
+        }
+      }
+    ]
+  }
+}
